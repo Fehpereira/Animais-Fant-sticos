@@ -4,8 +4,6 @@ export default function initOperation(){
   const weekDays = operation.dataset.semana.split(",").map(Number)
   const timeWeek = operation.dataset.horario.split(",").map(Number)
   
-  console.log(timeWeek)
-  
   const dateNow = new Date()
   const dayNow = dateNow.getDay()
   const timeNow = dateNow.getHours()
