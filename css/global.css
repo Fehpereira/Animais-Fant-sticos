@@ -305,3 +305,10 @@ body {
 .js [data-horario].open::after{
   background-color: #3F4;
 }
+
+.btc-preco {
+  background-color: #3F4;
+  padding: .2rem .5rem;
+  font-weight: bold;
+  border-radius: 2px;
+}

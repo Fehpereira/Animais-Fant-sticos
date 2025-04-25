@@ -2,14 +2,18 @@ import initNumbersAnimate from "./numbers-animate.js"
 
 export default function initFetchAnimals() {
   async function fetchAnimals(url){
-    const animalsResponse = await fetch(url)
-    const animalsJSON = await animalsResponse.json()
-    const numbersGrid = document.querySelector(".numeros-grid")
-    animalsJSON.forEach((animal) => {
-      const divAnimal = createAnimal(animal)
-      numbersGrid.appendChild(divAnimal)
-    })
-    initNumbersAnimate()
+    try{
+      const animalsResponse = await fetch(url)
+      const animalsJSON = await animalsResponse.json()
+      const numbersGrid = document.querySelector(".numeros-grid")
+      animalsJSON.forEach((animal) => {
+        const divAnimal = createAnimal(animal)
+        numbersGrid.appendChild(divAnimal)
+      })
+      initNumbersAnimate()
+    } catch(error){
+      console.log(error)
+    }
   }
   
   function createAnimal(animal) {
