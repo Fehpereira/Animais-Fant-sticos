@@ -1,15 +1,17 @@
-export default function initScrollSmooth(){
-  const internalLinks = document.querySelectorAll(" [data-menu='suave'] a[href^='#'")
+export default function initScrollSmooth() {
+  const internalLinks = document.querySelectorAll(
+    " [data-menu='suave'] a[href^='#'",
+  );
 
   const scrollToSection = (event) => {
-    event.preventDefault()
-    const href = event.currentTarget.getAttribute("href")
-    const section = document.querySelector(href)
-    
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    const section = document.querySelector(href);
+
     section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    })
+      behavior: 'smooth',
+      block: 'start',
+    });
 
     //forma alternativa
     // const topOfSection = section.offsetTop
@@ -17,11 +19,9 @@ export default function initScrollSmooth(){
     //   top: topOfSection,
     //   behavior: "smooth"
     // })
-  }
-
+  };
 
   internalLinks.forEach((link) => {
-    link.addEventListener("click", scrollToSection)
-  })
+    link.addEventListener('click', scrollToSection);
+  });
 }
-
