@@ -149,6 +149,7 @@ body {
 }
 
 .mapa {
+  height: fit-content;
   grid-column: 2;
 }
 
