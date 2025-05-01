@@ -6,7 +6,7 @@ import Tooltip from './modules/tooltip.js';
 import initDropdownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
 import initOperation from './modules/operation.js';
-import initFetchAnimals from './modules/fetch-animals.js';
+import fetchAnimals from './modules/fetch-animals.js';
 import initFetchBitcoin from './modules/fetch-bitcoin.js';
 import initAnimateScroll from './modules/scroll-animate.js';
 
@@ -22,15 +22,20 @@ const tabNav = new TabNav(
 );
 tabNav.init();
 
-const modal = new Modal('[data-modal="open"]', '[data-modal="fechar"]', '[data-modal="container"]');
-modal.init()
+const modal = new Modal(
+  '[data-modal="open"]',
+  '[data-modal="fechar"]',
+  '[data-modal="container"]',
+);
+modal.init();
 
 const tooltip = new Tooltip('[data-tooltip]');
-tooltip.init()
+tooltip.init();
+
+fetchAnimals('../../animals-api.json', '.numeros-grid');
 
 initDropdownMenu();
 initMenuMobile();
 initOperation();
-initFetchAnimals();
 initFetchBitcoin();
 initAnimateScroll();
