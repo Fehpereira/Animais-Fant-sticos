@@ -10,7 +10,8 @@ export default function initFetchAnimals() {
         const divAnimal = createAnimal(animal);
         numbersGrid.appendChild(divAnimal);
       });
-      initNumbersAnimate();
+      const numbersAnimate = new initNumbersAnimate("[data-numero]", ".numeros", "active");
+      numbersAnimate.init();
     } catch (error) {
       console.log(error);
     }
