@@ -1,29 +1,41 @@
 import initNumbersAnimate from './numbers-animate.js';
 
-export default function initFetchAnimals() {
-  async function fetchAnimals(url) {
+export default function fetchAnimals(url, target) {
+  function createAnimal(animal) {
+    const div = document.createElement('div');
+    div.classList.add('numero-animal');
+    div.innerHTML = `<h3>${animal.specie}</h3> <span data-numero>${animal.total}</span>`;
+    return div;
+  }
+
+  const numbersGrid = document.querySelector(target);
+  function fillAnimals(animal) {
+    const divAnimal = createAnimal(animal);
+    numbersGrid.appendChild(divAnimal);
+  }
+
+  function animateNumbersAnimals() {
+    const numbersAnimate = new initNumbersAnimate(
+      '[data-numero]',
+      '.numeros',
+      'active',
+    );
+    numbersAnimate.init();
+  }
+
+  async function createAnimals() {
     try {
       const animalsResponse = await fetch(url);
       const animalsJSON = await animalsResponse.json();
-      const numbersGrid = document.querySelector('.numeros-grid');
+
       animalsJSON.forEach((animal) => {
-        const divAnimal = createAnimal(animal);
-        numbersGrid.appendChild(divAnimal);
+        fillAnimals(animal);
       });
-      const numbersAnimate = new initNumbersAnimate("[data-numero]", ".numeros", "active");
-      numbersAnimate.init();
+      animateNumbersAnimals();
     } catch (error) {
       console.log(error);
     }
   }
 
-  function createAnimal(animal) {
-    const div = document.createElement('div');
-    div.classList.add('numero-animal');
-
-    div.innerHTML = `<h3>${animal.specie}</h3> <span data-numero>${animal.total}</span>`;
-    return div;
-  }
-
-  fetchAnimals('./animals-api.json');
+  return createAnimals();
 }
