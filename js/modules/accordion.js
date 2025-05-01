@@ -15,12 +15,12 @@ export default class Accordion {
       this.accordionList[0].classList.add(this.activeClass);
       this.accordionList[0].nextElementSibling.classList.add(this.activeClass);
       this.addAccordionEvent();
+      return this;
     }
   }
   toggleAccordion(event) {
     event.currentTarget.classList.toggle(this.activeClass);
     event.currentTarget.nextElementSibling.classList.toggle(this.activeClass);
-    return this;
   }
   addAccordionEvent() {
     this.accordionList.forEach((item) => {
