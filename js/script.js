@@ -32,7 +32,7 @@ modal.init();
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
-fetchAnimals('../../animals-api.json', '.numeros-grid');
+fetchAnimals('./animals-api.json', '.numeros-grid');
 
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
