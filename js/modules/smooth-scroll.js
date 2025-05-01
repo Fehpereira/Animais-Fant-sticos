@@ -12,7 +12,6 @@ export default class ScrollSmooth {
     this.scrollToSection = this.scrollToSection.bind(this);
   }
   scrollToSection = (event) => {
-    console.log(this);
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
     const section = document.querySelector(href);

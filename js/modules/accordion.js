@@ -7,7 +7,7 @@ export default class Accordion {
     }
     this.activeClass = activeClass;
 
-    this.activeAccordion = this.activeAccordion.bind(this);
+    this.toggleAccordion = this.toggleAccordion.bind(this);
   }
 
   init() {
