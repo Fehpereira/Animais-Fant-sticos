@@ -1,27 +1,40 @@
-export default function initScrollSmooth() {
-  const internalLinks = document.querySelectorAll(
-    " [data-menu='suave'] a[href^='#'",
-  );
-
-  const scrollToSection = (event) => {
+export default class ScrollSmooth {
+  constructor(links, options) {
+    this.internalLinks = document.querySelectorAll(links);
+    if (options === undefined) {
+      this.options = {
+        behavior: 'smooth',
+        block: 'start',
+      };
+    } else {
+      this.options = options;
+    }
+    this.scrollToSection = this.scrollToSection.bind(this);
+  }
+  scrollToSection = (event) => {
+    console.log(this);
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
     const section = document.querySelector(href);
-
-    section.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
-
-    //forma alternativa
-    // const topOfSection = section.offsetTop
-    // window.scrollTo({
-    //   top: topOfSection,
-    //   behavior: "smooth"
-    // })
+    section.scrollIntoView(this.options);
   };
 
-  internalLinks.forEach((link) => {
-    link.addEventListener('click', scrollToSection);
-  });
+  addLinkEvent() {
+    this.internalLinks.forEach((link) => {
+      link.addEventListener('click', this.scrollToSection);
+    });
+  }
+
+  init() {
+    if (this.internalLinks.length) {
+      this.addLinkEvent();
+      return this;
+    }
+  }
 }
+//forma alternativa
+// const topOfSection = section.offsetTop
+// window.scrollTo({
+//   top: topOfSection,
+//   behavior: "smooth"
+// })
