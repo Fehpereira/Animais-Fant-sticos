@@ -4,7 +4,7 @@ import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
 import DropdownMenu from './modules/dropdown-menu.js';
-import initMenuMobile from './modules/menu-mobile.js';
+import MenuMobile from './modules/menu-mobile.js';
 import initOperation from './modules/operation.js';
 import fetchAnimals from './modules/fetch-animals.js';
 import fetchBitcoin from './modules/fetch-bitcoin.js';
@@ -42,8 +42,14 @@ const animateScroll = new AnimateScroll(
 );
 animateScroll.init();
 
-const dropdownMenu = new DropdownMenu("[data-dropdown]");
-dropdownMenu.init()
+const dropdownMenu = new DropdownMenu('[data-dropdown]');
+dropdownMenu.init();
 
-initMenuMobile();
+const menuMobile = new MenuMobile(
+  "[data-menu='button']",
+  "[data-menu='list']",
+  ['click'],
+);
+menuMobile.init();
+
 initOperation();
