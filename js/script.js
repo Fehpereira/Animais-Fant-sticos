@@ -36,8 +36,11 @@ fetchAnimals('./animals-api.json', '.numeros-grid');
 
 fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');
 
-const animateScroll = new AnimateScroll("[data-anime='scroll']",  window.innerHeight * 0.6 );
-animateScroll.init()
+const animateScroll = new AnimateScroll(
+  "[data-anime='scroll']",
+  window.innerHeight * 0.6,
+);
+animateScroll.init();
 
 initDropdownMenu();
 initMenuMobile();
