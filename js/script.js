@@ -9,6 +9,7 @@ import Operation from './modules/operation.js';
 import fetchAnimals from './modules/fetch-animals.js';
 import fetchBitcoin from './modules/fetch-bitcoin.js';
 import AnimateScroll from './modules/scroll-animate.js';
+import { SlideNav } from './modules/slide.js';
 
 const smoothScroll = new ScrollSmooth('[data-menu="suave"] a[href^="#"]');
 smoothScroll.init();
@@ -52,5 +53,10 @@ const menuMobile = new MenuMobile(
 );
 menuMobile.init();
 
-const operation = new Operation('[data-semana]', );
-operation.init()
+const operation = new Operation('[data-semana]');
+operation.init();
+
+const slideNav = new SlideNav('.slide', '.wrapper');
+slideNav.init();
+slideNav.addArrow('.prev', '.next');
+slideNav.addControl('.custom-controls');
